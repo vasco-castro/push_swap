@@ -6,7 +6,7 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 20:44:44 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/01/13 18:36:21 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/01/13 18:37:18 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,4 @@ int count_numbers(const int argc, const char *argv[])
 	}
 
 	return (nbrs);
-}9
+}
