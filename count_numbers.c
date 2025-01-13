@@ -6,7 +6,7 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 20:44:44 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/01/13 18:37:18 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/01/13 20:52:50 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	is_signal(int c)
 	return (c == '+' || c == '-');
 }
 
-int count_numbers(const int argc, const char *argv[])
+int count_numbers(const char *argv[])
 {
 	int i;
 	int j;

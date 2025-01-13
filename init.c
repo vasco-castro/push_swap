@@ -6,7 +6,7 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 20:45:58 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/01/13 18:26:54 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/01/13 21:33:26 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ static int is_space(int c)
 	return ((c >= 9 && c <= 13) || c == 32);
 }
 
+/* Returns positive integer if signal is positive, negative if is negative and 0 if is not a signal char */
 static int	is_signal(int c)
 {
 	if (c == '+')
 		return (1);
 	else if (c == '-')
 		return (-1);
-	else
-		return (0);
+	return (0);
 }
 
 static int	ft_atoi(const char *str)
@@ -53,28 +53,32 @@ static int	ft_atoi(const char *str)
 	return (nb * signal);
 }
 
-void init(int *stack_a, const int argc, const char *argv[])
+void init(int *stack_a, const char *argv[])
 {
 	int i;
 	int j;
-	char *start;
+	int nbs;
 
 	i = 1;
-	start = NULL;
+	nbs = 0;
 	while(argv[i])
 	{
 		j = 0;
 		while(argv[i][j])
 		{
-
-			if(!is_digit(argv[i][j]) && !is_space(argv[i][j]))
-				error();
-			else if(is_digit(argv[i][j]) && !is_digit(argv[i][j-1]))
-				start = &argv[i][j];
-
-			// if (start && )
+			if((is_digit(argv[i][j]) || (is_signal(argv[i][j]) != 0)) && (!is_digit(argv[i][j-1]) && (is_signal(argv[i][j-1]) == 0)))
+			{
+				stack_a[nbs++] = ft_atoi(&argv[i][j]);
+			}
 			j++;
 		}
 		i++;
 	}
 }
+
+/* int main(void) {
+	char str[] = "-1 2 3";
+	printf("%d\n", ((is_digit(str[0]) || (is_signal(str[0]) != 0)) && (!is_digit(str[-1]) && (is_signal(str[-1]) == 0))));
+	printf("%d\n", (!is_digit(str[-1]) || (is_signal(str[-1]) == 0)));
+	return (0);
+} */

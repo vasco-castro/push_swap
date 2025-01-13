@@ -7,7 +7,7 @@ CFLAGS = -Wall -Werror -Wextra -O3
 
 RM = rm -f
 
-SRCS = push_swap.c
+SRCS = push_swap.c count_numbers.c init.c
 BONUS_SRCS = checker.c
 
 OBJS = $(SRCS:.c=.o)
@@ -17,32 +17,32 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "Building $(NAME)."
-	@$(CC) $(NAME) $(OBJS)
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-LIBFTDIR = libft
-LIBFT = $(LIBFTDIR)/libft.a
-$(LIBFT):
-	@make -C $(LIBFTDIR) --no-print-directory
+# LIBFTDIR = libft
+# LIBFT = $(LIBFTDIR)/libft.a
+# $(LIBFT):
+# 	@make -C $(LIBFTDIR) --no-print-directory
 
-FT_PRINTFDIR = printf
-FT_PRINTF = $(FT_PRINTFDIR)/libftprintf.a
-$(FT_PRINTF):
-	@make -C $(FT_PRINTFDIR) --no-print-directory
+# FT_PRINTFDIR = printf
+# FT_PRINTF = $(FT_PRINTFDIR)/libftprintf.a
+# $(FT_PRINTF):
+# 	@make -C $(FT_PRINTFDIR) --no-print-directory
 
 bonus:
 	@echo "Building $(BONUS)."
-	@$(CC) $(BONUS) $(BONUS_OBJS)
+	@$(CC) $(CFLAGS) $(BONUS_OBJS) -o $(BONUS)
 
 clean:
 	@echo "Cleaning all objects."
 	@$(RM) $(OBJS)
-	@make -C $(FT_PRINTFDIR) clean --no-print-directory
-	@make -C $(LIBFTDIR) clean --no-print-directory
+# @make -C $(FT_PRINTFDIR) clean --no-print-directory
+# @make -C $(LIBFTDIR) clean --no-print-directory
 
 fclean: clean
 	@echo "Cleaning all $(NAME) files."
 	@$(RM) $(NAME)
-	@make -C $(FT_PRINTFDIR) fclean --no-print-directory
-	@make -C $(LIBFTDIR) fclean --no-print-directory
+# @make -C $(FT_PRINTFDIR) fclean --no-print-directory
+# @make -C $(LIBFTDIR) fclean --no-print-directory
 
 re: fclean all

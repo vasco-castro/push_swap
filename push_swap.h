@@ -6,7 +6,7 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 19:28:48 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/01/13 18:12:12 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/01/13 20:53:05 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <limits.h>
 # include "operations/operations.h"
 
-int		count_numbers(const int argc, const char *argv[]);
-void	init(int *stack_a, const int argc, const char *argv[]);
-void	error();
+int		count_numbers(const char *argv[]);
+void	init(int *stack_a, const char *argv[]);
+void	error(void);
 
 #endif
