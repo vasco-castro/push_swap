@@ -12,8 +12,9 @@
 
 #include "operations.h"
 
-static void push(void from, void to)
+static void	push(void from, void to)
 {
+	void (from, to);
 }
 
 void	pa(t_stacks *stacks)
