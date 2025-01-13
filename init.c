@@ -6,7 +6,7 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 20:45:58 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/01/13 22:16:44 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/01/13 22:26:57 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,3 @@ void	init(int *stack_a, const char *argv[])
 		i++;
 	}
 }
-
-/* int main(void) {
-	char str[] = "-1 2 3";
-	printf("%d\n", ((is_digit(str[0]) || (is_signal(str[0]) != 0))
-		&& (!is_digit(str[-1]) && (is_signal(str[-1]) == 0))));
-	printf("%d\n", (!is_digit(str[-1]) || (is_signal(str[-1]) == 0)));
-	return (0);
-} */
