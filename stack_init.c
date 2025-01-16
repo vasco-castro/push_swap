@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 20:45:58 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/01/13 22:26:57 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/01/16 17:15:49 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ static int	is_signal(int c)
 	return (0);
 }
 
-static int	ft_atoi(const char *str)
+static int	ft_atoi(const char *str, t_stacks *stacks)
 {
-	size_t			i;
-	unsigned long	nb;
-	int				signal;
+	size_t	i;
+	long	nb;
+	int		signal;
 
 	i = 0;
 	signal = 1;
@@ -52,10 +52,13 @@ static int	ft_atoi(const char *str)
 		nb += str[i] - '0';
 		i++;
 	}
-	return (nb * signal);
+	nb *= signal;
+	if (nb > INT_MAX || nb < INT_MIN)
+		error(stacks);
+	return (nb);
 }
 
-void	init(int *stack_a, const char *argv[])
+void	stack_init(t_stacks *stacks, const char *argv[])
 {
 	int	i;
 	int	j;
@@ -68,14 +71,10 @@ void	init(int *stack_a, const char *argv[])
 		j = 0;
 		while (argv[i][j])
 		{
-			if (
-				(is_digit(argv[i][j]) || (is_signal(argv[i][j]) != 0))
+			if ((is_digit(argv[i][j]) || (is_signal(argv[i][j]) != 0))
 				&&
-				(!is_digit(argv[i][j - 1]) && (is_signal(argv[i][j - 1]) == 0))
-			)
-			{
-				stack_a[nbs++] = ft_atoi(&argv[i][j]);
-			}
+				(!is_digit(argv[i][j - 1]) && (is_signal(argv[i][j - 1]) == 0)))
+				stacks->a[nbs++] = ft_atoi(&argv[i][j], stacks);
 			j++;
 		}
 		i++;

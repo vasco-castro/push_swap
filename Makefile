@@ -7,11 +7,23 @@ CFLAGS = -Wall -Werror -Wextra -O3
 
 RM = rm -f
 
-SRCS = push_swap.c count_numbers.c init.c
-BONUS_SRCS = checker.c
+# Directories
+INC		= ./inc/
+SRC_DIR	= ./
+OP_DIR 	= ./operations/
+OBJ_DIR	= ./objs/
 
-OBJS = $(SRCS:.c=.o)
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+SRCS = $(SRC_DIR)push_swap.c $(SRC_DIR)stack_init.c $(SRC_DIR)stack_len.c $(SRC_DIR)stack_dups.c $(OPERATIONS)
+OPERATIONS = $(OP_DIR)push.c $(OP_DIR)rotate.c $(OP_DIR)rrotate.c $(OP_DIR)swap.c
+# BONUS_SRCS = checker.c
+
+# OBJS = $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
+# SRC_OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
+# OP_OBJS = $(OPERATIONS:$(OP_DIR)%.c=$(OBJ_DIR)$(OP_DIR)%.o)
+# OBJS = $(SRC_OBJS) $(OP_OBJS) #$(SRCS:%.c=$(OBJ_DIR)%.o) #$(OP_OBJS)
+# BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+
+OBJS = $(SRCS:%.c=%.o)
 
 all: $(NAME)
 
@@ -29,9 +41,9 @@ $(NAME): $(OBJS)
 # $(FT_PRINTF):
 # 	@make -C $(FT_PRINTFDIR) --no-print-directory
 
-bonus:
-	@echo "Building $(BONUS)."
-	@$(CC) $(CFLAGS) $(BONUS_OBJS) -o $(BONUS)
+# bonus:
+# 	@echo "Building $(BONUS)."
+# 	@$(CC) $(CFLAGS) $(BONUS_OBJS) -o $(BONUS)
 
 clean:
 	@echo "Cleaning all objects."

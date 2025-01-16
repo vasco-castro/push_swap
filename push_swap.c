@@ -6,37 +6,55 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 19:28:32 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/01/13 22:22:03 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/01/16 19:38:48 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_swap(t_stacks stack_a)
+void	push_swap(t_stacks *stacks)
 {
-	void (stack_a);
+	pb(stacks);
 }
 
 int	main(int argc, char const *argv[])
 {
-	int	*stack_a;
-	int	a_len;
-	int	i;
+	t_stacks	*stacks;
 
+	stacks = malloc(sizeof(t_stacks));
+	if (!stacks)
+		error(stacks);
 	if (argc == 1)
 		return (0);
-	a_len = count_numbers(argv);
-	stack_a = malloc(a_len * 4);
-	if (!stack_a)
-		error();
-	init(stack_a, argv);
-	push_swap(stack_a);
-	free(stack_a);
+	stacks->size_b = 0;
+	stacks->size_a = stack_len(argv, stacks);
+	stacks->a = malloc(stacks->size_a * 4);
+	stacks->b = malloc(stacks->size_a * 4);
+	if (!stacks->a || !stacks->b)
+		error(stacks);
+	stack_init(stacks, argv);
+	if (stack_dups(stacks->a, stacks->size_a))
+		error(stacks);
+	push_swap(stacks);
+	clean(stacks);
 	return (0);
 }
 
-void	error(void)
+void	clean(t_stacks *stacks)
 {
+	if (stacks)
+	{
+		if (stacks->a)
+			free(stacks->a);
+		if (stacks->b)
+			free(stacks->b);
+		free (stacks);
+	}
+}
+
+void	error(t_stacks *stacks)
+{
+	clean(stacks);
 	write(2, "Error\n", 6);
 	exit(1);
 }
