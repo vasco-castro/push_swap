@@ -1,34 +1,23 @@
 include config.mk
 include targets.mk
+include bonus.mk
 
 NAME = push_swap
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(LIBFT)
 	@echo "Building $(NAME)."
-	@$(COMPILE) $(OBJS) -o $(NAME)
-
-# LIBFTDIR = libft
-# LIBFT = $(LIBFTDIR)/libft.a
-# $(LIBFT):
-# 	@make -C $(LIBFTDIR) --no-print-directory
-
-# FT_PRINTFDIR = printf
-# FT_PRINTF = $(FT_PRINTFDIR)/libftprintf.a
-# $(FT_PRINTF):
-# 	@make -C $(FT_PRINTFDIR) --no-print-directory
+	@$(COMPILE) $(OBJS) $(LIBFT) $(LIBFT_FLAGS) -o $(NAME)
 
 clean:
-	@echo "Cleaning all objects."
+	@printf "$(YELLOW)Cleaning objects.$(RESET)\n"
 	@$(REMOVE) $(OBJS)
-# @make -C $(FT_PRINTFDIR) clean --no-print-directory
-# @make -C $(LIBFTDIR) clean --no-print-directory
+	@make clean -s -C $(LIBFT_DIR)
 
 fclean: clean
-	@echo "Cleaning all $(NAME) files."
+	@printf "$(YELLOW)Cleaning binaries.$(RESET)\n"
 	@$(REMOVE) $(NAME)
-# @make -C $(FT_PRINTFDIR) fclean --no-print-directory
-# @make -C $(LIBFTDIR) fclean --no-print-directory
+	@make fclean -s -C $(LIBFT_DIR)
 
 re: fclean all

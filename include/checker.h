@@ -6,13 +6,13 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 19:28:48 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/01/09 15:23:36 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/10/25 13:45:47 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
 
-# include <stdio.h>
+# include "push_swap.h"
 
 #endif

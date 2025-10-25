@@ -6,7 +6,7 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:27:43 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/01/16 17:13:06 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/10/25 14:14:39 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ typedef struct s_stacks
 	int	size_a;
 	int	size_b;
 }		t_stacks;
+
+void	shift_up(int *stack, int size);
+void	shift_down(int *stack, int size);
 
 void	sa(t_stacks *stacks);
 void	sb(t_stacks *stacks);

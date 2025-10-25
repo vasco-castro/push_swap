@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/09 15:26:05 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/01/16 17:36:49 by vsoares-         ###   ########.fr       */
+/*   Created: 2025/10/25 14:11:50 by vsoares-          #+#    #+#             */
+/*   Updated: 2025/10/25 14:20:03 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "operations.h"
+#include "../../include/push_swap.h"
 
-static void	rotate(int *stack)
+void	shift_up(int *stack, int size)
 {
-	(void)stack;
+	int	i;
+
+	i = 0;
+	while (i < size - 1)
+	{
+		stack[i] = stack[i + 1];
+		i++;
+	}
+	stack[i] = 0;
 }
 
-void	ra(t_stacks *stacks)
+void	shift_down(int *stack, int size)
 {
-	rotate(stacks->a);
-	write(1, "ra\n", 3);
-}
+	int	i;
 
-void	rb(t_stacks *stacks)
-{
-	rotate(stacks->b);
-	write(1, "rb\n", 3);
-}
-
-void	rr(t_stacks *stacks)
-{
-	rotate(stacks->a);
-	rotate(stacks->b);
-	write(1, "rr\n", 3);
+	i = size - 1;
+	while (i > 0)
+	{
+		stack[i] = stack[i - 1];
+		i--;
+	}
+	stack[0] = 0;
 }

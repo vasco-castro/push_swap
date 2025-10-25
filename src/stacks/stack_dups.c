@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../include/push_swap.h"
 
 int	stack_dups(int *stack, int size)
 {
@@ -18,10 +18,10 @@ int	stack_dups(int *stack, int size)
 	int	j;
 
 	i = 0;
-	while(i < size)
+	while (i < size)
 	{
 		j = i + 1;
-		while(j < size)
+		while (j < size)
 		{
 			if (stack[j] == stack[i])
 				return (1);

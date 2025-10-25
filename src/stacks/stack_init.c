@@ -10,30 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../include/push_swap.h"
 
-static int	is_digit(int c)
-{
-	return (c > '0' && c < '9');
-}
-
-static int	is_space(int c)
-{
-	return ((c >= 9 && c <= 13) || c == 32);
-}
-
-/* Returns positive integer if signal is positive,
- negative if is negative and 0 if is not a signal char */
-static int	is_signal(int c)
-{
-	if (c == '+')
-		return (1);
-	else if (c == '-')
-		return (-1);
-	return (0);
-}
-
-static int	ft_atoi(const char *str, t_stacks *stacks)
+// TODO: Check if it's really needed to use this atoi. It's validating overflow!
+static int	ft_atoi2(const char *str, t_stacks *stacks)
 {
 	size_t	i;
 	long	nb;
@@ -42,11 +22,11 @@ static int	ft_atoi(const char *str, t_stacks *stacks)
 	i = 0;
 	signal = 1;
 	nb = 0;
-	while (is_space(str[i]))
+	while (ft_isspace(str[i]))
 		i++;
-	if (is_signal(str[i]) != 0)
-		signal *= is_signal(str[i++]);
-	while (is_digit(str[i]) && nb <= INT_MAX)
+	if (ft_issign(str[i]) != 0)
+		signal *= ft_issign(str[i++]);
+	while (ft_isdigit(str[i]) && nb <= INT_MAX)
 	{
 		nb *= 10;
 		nb += str[i] - '0';
@@ -71,10 +51,10 @@ void	stack_init(t_stacks *stacks, const char *argv[])
 		j = 0;
 		while (argv[i][j])
 		{
-			if ((is_digit(argv[i][j]) || (is_signal(argv[i][j]) != 0))
-				&&
-				(!is_digit(argv[i][j - 1]) && (is_signal(argv[i][j - 1]) == 0)))
-				stacks->a[nbs++] = ft_atoi(&argv[i][j], stacks);
+			if ((ft_isdigit(argv[i][j]) || (ft_issign(argv[i][j]) != 0))
+				&& (!ft_isdigit(argv[i][j - 1])
+					&& (ft_issign(argv[i][j - 1]) == 0)))
+				stacks->a[nbs++] = ft_atoi2(&argv[i][j], stacks);
 			j++;
 		}
 		i++;
