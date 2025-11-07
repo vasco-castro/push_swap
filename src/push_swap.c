@@ -6,15 +6,38 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 19:28:32 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/01/16 19:38:48 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/11/07 03:19:41 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+void	debug_stacks(t_stacks *stacks)
+{
+	int	i;
+
+	i = 0;
+	ft_printf(CYAN"A\tB\n"RESET);
+	ft_printf(CYAN"---------\n"RESET);
+	while (i < stacks->size_a || i < stacks->size_b)
+	{
+		if (i < stacks->size_a)
+			ft_printf(YELLOW"%d", stacks->a[i]);
+		ft_printf("\t");
+		if (i < stacks->size_b)
+			ft_printf(YELLOW"%d", stacks->b[i]);
+		ft_printf("\n"RESET);
+		i++;
+	}
+	ft_printf(CYAN"---------\n"RESET);
+}
+
 void	push_swap(t_stacks *stacks)
 {
-	pb(stacks);
+	if (is_sorted(stacks))
+		return ;
+	else if (stacks->size_a == 3)
+		sort_tree(stacks);
 }
 
 int	main(int argc, char const *argv[])
@@ -22,10 +45,8 @@ int	main(int argc, char const *argv[])
 	t_stacks	*stacks;
 
 	stacks = malloc(sizeof(t_stacks));
-	if (!stacks)
+	if (!stacks || argc <= 1)
 		error(stacks);
-	if (argc == 1)
-		return (0);
 	stacks->size_b = 0;
 	stacks->size_a = stack_len(argv, stacks);
 	stacks->a = malloc(stacks->size_a * 4);
@@ -38,23 +59,4 @@ int	main(int argc, char const *argv[])
 	push_swap(stacks);
 	clean(stacks);
 	return (0);
-}
-
-void	clean(t_stacks *stacks)
-{
-	if (stacks)
-	{
-		if (stacks->a)
-			free(stacks->a);
-		if (stacks->b)
-			free(stacks->b);
-		free (stacks);
-	}
-}
-
-void	error(t_stacks *stacks)
-{
-	clean(stacks);
-	write(2, "Error\n", 6);
-	exit(1);
 }

@@ -12,21 +12,6 @@
 
 #include "../../include/push_swap.h"
 
-static int	is_digit(int c)
-{
-	return (c >= '0' && c <= '9');
-}
-
-static int	is_space(int c)
-{
-	return ((c >= 9 && c <= 13) || c == 32);
-}
-
-static int	is_signal(int c)
-{
-	return (c == '+' || c == '-');
-}
-
 int	stack_len(const char *argv[], t_stacks *stacks)
 {
 	int	i;
@@ -40,12 +25,10 @@ int	stack_len(const char *argv[], t_stacks *stacks)
 		j = 0;
 		while (argv[i][j])
 		{
-			if (!is_digit(argv[i][j]) && !is_space(argv[i][j])
-				&& !is_signal(argv[i][j]))
-			{
+			if (!ft_isdigit(argv[i][j]) && !ft_isspace(argv[i][j])
+				&& !ft_issign(argv[i][j]))
 				error(stacks);
-			}
-			else if (is_digit(argv[i][j]) && !(is_digit(argv[i][j - 1])))
+			else if (ft_isdigit(argv[i][j]) && !(ft_isdigit(argv[i][j - 1])))
 				nbrs++;
 			j++;
 		}

@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   memory.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/31 19:28:48 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/10/25 13:45:21 by vsoares-         ###   ########.fr       */
+/*   Created: 2025/11/07 16:30:41 by vsoares-          #+#    #+#             */
+/*   Updated: 2025/11/07 16:30:44 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../../include/push_swap.h"
 
-# include "../lib/libft/include/libft.h"
-# include "operations.h"
-# include "sorting.h"
-
-int		stack_len(const char *argv[], t_stacks *stacks);
-void	stack_init(t_stacks *stacks, const char *argv[]);
-int		stack_dups(int *stack, int size);
-void	error(t_stacks *stacks);
-void	clean(t_stacks *stacks);
-
-#endif
+void	clean(t_stacks *stacks)
+{
+	if (stacks)
+	{
+		if (stacks->a)
+			free(stacks->a);
+		if (stacks->b)
+			free(stacks->b);
+		free (stacks);
+	}
+}

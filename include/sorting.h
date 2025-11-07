@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   sorting.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/31 19:28:48 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/10/25 13:45:21 by vsoares-         ###   ########.fr       */
+/*   Created: 2025/11/07 03:02:43 by vsoares-          #+#    #+#             */
+/*   Updated: 2025/11/07 03:07:30 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef SORTING_H
+# define SORTING_H
 
-# include "../lib/libft/include/libft.h"
-# include "operations.h"
-# include "sorting.h"
+# include "push_swap.h"
 
-int		stack_len(const char *argv[], t_stacks *stacks);
-void	stack_init(t_stacks *stacks, const char *argv[]);
-int		stack_dups(int *stack, int size);
-void	error(t_stacks *stacks);
-void	clean(t_stacks *stacks);
+void	sort_tree(t_stacks *stacks);
+bool	is_sorted(t_stacks *stacks);
 
 #endif
