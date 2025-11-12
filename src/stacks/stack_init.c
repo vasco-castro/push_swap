@@ -12,27 +12,30 @@
 
 #include "../../include/push_swap.h"
 
-// TODO: Check if it's really needed to use this atoi. It's validating overflow!
-static int	ft_atoi2(const char *str, t_stacks *stacks)
+/*
+ * @brief Based on my "int ft_atoi(const char *str);",
+ * but with overflow detection.
+ */
+static int	ft_atoi_no_of(const char *str, t_stacks *stacks)
 {
 	size_t	i;
 	long	nb;
-	int		signal;
+	int		sign;
 
 	i = 0;
-	signal = 1;
+	sign = 1;
 	nb = 0;
 	while (ft_isspace(str[i]))
 		i++;
 	if (ft_issign(str[i]) != 0)
-		signal *= ft_issign(str[i++]);
+		sign *= ft_issign(str[i++]);
 	while (ft_isdigit(str[i]) && nb <= INT_MAX)
 	{
 		nb *= 10;
 		nb += str[i] - '0';
 		i++;
 	}
-	nb *= signal;
+	nb *= sign;
 	if (nb > INT_MAX || nb < INT_MIN)
 		error(stacks);
 	return (nb);
@@ -54,7 +57,7 @@ void	stack_init(t_stacks *stacks, const char *argv[])
 			if ((ft_isdigit(argv[i][j]) || (ft_issign(argv[i][j]) != 0))
 				&& (!ft_isdigit(argv[i][j - 1])
 					&& (ft_issign(argv[i][j - 1]) == 0)))
-				stacks->a[nbs++] = ft_atoi2(&argv[i][j], stacks);
+				stacks->a[nbs++] = ft_atoi_no_of(&argv[i][j], stacks);
 			j++;
 		}
 		i++;
