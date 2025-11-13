@@ -18,4 +18,6 @@
 void	sort_tree(t_stacks *stacks);
 bool	is_sorted(t_stacks *stacks);
 
+void	indexing(t_stacks *s);
+
 #endif

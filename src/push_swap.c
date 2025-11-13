@@ -58,7 +58,14 @@ int	main(int argc, char const *argv[])
 	stack_init(stacks, argv);
 	if (stack_dups(stacks->a, stacks->size_a))
 		error(stacks);
+	
+	debug_stacks(stacks);
+	indexing(stacks);
+	debug_stacks(stacks);
+	
 	push_swap(stacks);
+	debug_stacks(stacks);
+	
 	clean(stacks);
 	return (0);
 }

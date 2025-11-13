@@ -10,7 +10,7 @@ SRCS = $(addsuffix .c, \
 	$(addprefix $(SRC_DIR)/, $(NAME)) \
 	$(addprefix $(OP_DIR)/, operations push rotate rrotate swap) \
 	$(addprefix $(STK_DIR)/,  stack_init stack_len stack_dups) \
-	$(addprefix $(SRT_DIR)/,  sort_tree) \
+	$(addprefix $(SRT_DIR)/,  sorting indexing) \
 	$(addprefix $(UTL_DIR)/,  error_handling memory) \
 )
 
