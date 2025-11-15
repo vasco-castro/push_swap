@@ -6,7 +6,7 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 19:28:32 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/11/07 03:19:41 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/11/15 18:47:39 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,20 @@ void	debug_stacks(t_stacks *stacks)
 	ft_printf(CYAN"---------\n"RESET);
 }
 
-void	push_swap(t_stacks *stacks)
+void	push_swap(t_stacks *s)
 {
-	if (is_sorted(stacks))
+	debug_stacks(s);
+	if (is_sorted(s))
 		return ;
-	else if (stacks->size_a == 2)
-		sa(stacks);
-	else if (stacks->size_a == 3)
-		sort_tree(stacks);
+	else if (s->size_a == 2)
+		sa(s);
+	else if (s->size_a == 3)
+		sort3(s);
+	else if (s->size_a == 5)
+		sort5(s);
+	else
+		radix(s);
+	debug_stacks(s);
 }
 
 int	main(int argc, char const *argv[])
@@ -58,14 +64,8 @@ int	main(int argc, char const *argv[])
 	stack_init(stacks, argv);
 	if (stack_dups(stacks->a, stacks->size_a))
 		error(stacks);
-	
-	debug_stacks(stacks);
 	indexing(stacks);
-	debug_stacks(stacks);
-	
 	push_swap(stacks);
-	debug_stacks(stacks);
-	
 	clean(stacks);
 	return (0);
 }

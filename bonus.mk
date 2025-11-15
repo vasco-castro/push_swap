@@ -5,6 +5,8 @@ BONUS_SRCS = $(addsuffix .c, \
 	$(addprefix $(SRC_DIR)/, $(BONUS)) \
 )
 
-# bonus:
-# 	@echo "Building $(BONUS)."
-# 	@$(COMPILE) $(BONUS_OBJS) -o $(BONUS)
+BONUS_OBJS = $(BONUS_SRCS:%.c=%.o)
+
+bonus: $(LIBFT) $(BONUS_OBJS)
+	@echo "Building $(BONUS)."
+	@$(COMPILE) $(BONUS_OBJS) $(LIBFT) $(LIBFT_FLAGS) -o $(BONUS)

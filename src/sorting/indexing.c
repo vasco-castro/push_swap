@@ -6,7 +6,7 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 19:45:53 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/11/13 19:46:06 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/11/15 17:59:05 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	indexing(t_stacks *s)
 {
-	
+
 	int		i;
 	int		j;
 	int		k;
@@ -38,4 +38,22 @@ void	indexing(t_stacks *s)
 	while (i--)
 		s->a[i] = new_a[i];
 	free(new_a);
+}
+
+bool	is_sorted(t_stacks *stacks)
+{
+	int	i;
+
+	if (stacks->size_b != 0)
+		return (false);
+	if (stacks->size_a <= 1)
+		return (true);
+	i = 0;
+	while (i < stacks->size_a - 1)
+	{
+		if (stacks->a[i] > stacks->a[i + 1])
+			return (false);
+		i++;
+	}
+	return (true);
 }

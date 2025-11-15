@@ -14,15 +14,15 @@
 
 static void	push(int *src_stack, int *src_size, int *dst_stack, int *dst_size)
 {
-	int	src_first;
+	int	temp;
 
 	if (*src_size == 0)
 		return ;
-	src_first = src_stack[0];
+	temp = src_stack[0];
 	shift_up(src_stack, *src_size);
 	(*src_size)--;
 	shift_down(dst_stack, *dst_size);
-	dst_stack[0] = src_first;
+	dst_stack[0] = temp;
 	(*dst_size)++;
 }
 

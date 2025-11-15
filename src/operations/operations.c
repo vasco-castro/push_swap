@@ -6,7 +6,7 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 14:11:50 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/10/25 14:20:03 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/11/15 19:00:44 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	shift_down(int *stack, int size)
 {
 	int	i;
 
-	i = size - 1;
+	i = size;
 	while (i > 0)
 	{
 		stack[i] = stack[i - 1];

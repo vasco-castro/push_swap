@@ -6,7 +6,7 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:26:05 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/10/25 14:16:13 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/11/15 20:47:46 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 static void	rotate(int *stack, int size)
 {
-	int	first;
+	int	temp;
 
 	if (!stack || !stack[0] || size < 2)
 		return ;
-	first = stack[0];
+	temp = stack[0];
 	shift_up(stack, size);
-	stack[size - 1] = first;
+	stack[size - 1] = temp;
 }
 
 void	ra(t_stacks *stacks)

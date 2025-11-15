@@ -51,6 +51,11 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+# VSCode Extensions and shit
+.vscode
+
 # Custom PUshSwap Project ignores
 push_swap
+checker_linux
+checker
 bonus

@@ -6,7 +6,7 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:25:55 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/10/25 14:17:41 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/11/15 20:47:51 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 static void	rrotate(int *stack, int size)
 {
-	int	last;
+	int	temp;
 
 	if (size < 2)
 		return ;
-	last = stack[size - 1];
+	temp = stack[size - 1];
 	shift_down(stack, size);
-	stack[0] = last;
+	stack[0] = temp;
 }
 
 void	rra(t_stacks *stacks)
