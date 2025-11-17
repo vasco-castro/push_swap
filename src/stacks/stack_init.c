@@ -6,7 +6,7 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 20:45:58 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/01/16 17:15:49 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/11/17 15:58:33 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
  * @brief Based on my "int ft_atoi(const char *str);",
  * but with overflow detection.
  */
-static int	ft_atoi_no_of(const char *str, t_stacks *stacks)
+static int	ft_atoi_no_of(char *str, t_stacks *stacks)
 {
 	size_t	i;
 	long	nb;
@@ -41,7 +41,7 @@ static int	ft_atoi_no_of(const char *str, t_stacks *stacks)
 	return (nb);
 }
 
-void	stack_init(t_stacks *stacks, const char *argv[])
+void	stack_init(t_stacks *stacks, char *argv[])
 {
 	int	i;
 	int	j;
