@@ -6,7 +6,7 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 19:45:53 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/11/15 17:59:05 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/11/17 17:22:55 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 void	indexing(t_stacks *s)
 {
-
 	int		i;
 	int		j;
 	int		k;

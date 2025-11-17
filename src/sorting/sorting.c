@@ -6,7 +6,7 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 16:29:35 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/11/17 15:50:42 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/11/17 17:23:29 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ void	radix(t_stacks *s)
 	int	max_bits;
 
 	max_bits = 0;
-	while (((s->size_a - 1) >> max_bits) != 0) ++max_bits;
+	while (((s->size_a - 1) >> max_bits) != 0)
+		++max_bits;
 	i = 0;
 	while (i < max_bits)
 	{
