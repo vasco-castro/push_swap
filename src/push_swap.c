@@ -6,7 +6,7 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 19:28:32 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/11/15 18:47:39 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/11/17 15:37:19 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	debug_stacks(t_stacks *stacks)
 	int	i;
 
 	i = 0;
+	if (!debug_mode())
+		return ;
 	ft_printf(CYAN"A(%d)\tB(%d)\n"RESET, stacks->size_a, stacks->size_b);
 	ft_printf(CYAN"---------\n"RESET);
 	while (i < stacks->size_a || i < stacks->size_b)
@@ -48,15 +50,16 @@ void	push_swap(t_stacks *s)
 	debug_stacks(s);
 }
 
-int	main(int argc, char const *argv[])
+int	main(int argc, char *argv[])
 {
 	t_stacks	*stacks;
 
+	parse_debug_mode(&argc, argv);
 	stacks = malloc(sizeof(t_stacks));
 	if (!stacks)
 		error(stacks);
 	stacks->size_b = 0;
-	stacks->size_a = stack_len(argv, stacks);
+	stacks->size_a = stack_len(stacks, argv);
 	stacks->a = malloc(stacks->size_a * sizeof(int));
 	stacks->b = malloc(stacks->size_a * sizeof(int));
 	if (!stacks->a || !stacks->b)

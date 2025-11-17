@@ -6,7 +6,7 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 16:29:35 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/11/15 19:03:58 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/11/17 15:12:42 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,15 +81,9 @@ void	radix(t_stacks *s)
 		while (j < size)
 		{
 			if (s->a[0] >> i & 1)
-			{
-				ft_printf("%d - bit[%d] = 1\n", s->a[0], i);
 				ra(s);
-			}
 			else
-			{
-				ft_printf("%d - bit[%d] = 0\n", s->a[0], i);
 				pb(s);
-			}
 			j++;
 		}
 		debug_stacks(s);

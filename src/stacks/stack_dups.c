@@ -6,13 +6,13 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 18:56:47 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/01/16 19:14:55 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/11/17 15:05:52 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int	stack_dups(int *stack, int size)
+bool	stack_dups(int *stack, int size)
 {
 	int	i;
 	int	j;
@@ -24,10 +24,10 @@ int	stack_dups(int *stack, int size)
 		while (j < size)
 		{
 			if (stack[j] == stack[i])
-				return (1);
+				return (true);
 			j++;
 		}
 		i++;
 	}
-	return (0);
+	return (false);
 }

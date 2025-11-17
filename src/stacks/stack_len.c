@@ -6,7 +6,7 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 20:44:44 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/01/16 19:38:36 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/11/17 15:07:11 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ bool	parse_digits(const char c1, const char c2, t_stacks *stacks)
 	return (false);
 }
 
-int	stack_len(const char *argv[], t_stacks *stacks)
+int	stack_len(t_stacks *stacks, char *argv[])
 {
 	int	i;
 	int	j;
