@@ -6,15 +6,15 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 16:30:57 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/11/07 16:31:01 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/11/17 17:40:30 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	error(t_stacks *stacks)
+void	ft_error(t_stacks *stacks)
 {
-	clean(stacks);
+	ft_clean(stacks);
 	write(2, "Error\n", 6);
 	exit(1);
 }

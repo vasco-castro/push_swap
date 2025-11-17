@@ -6,11 +6,12 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 19:28:32 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/11/17 15:37:19 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/11/17 17:46:50 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+#include <stdlib.h>
 
 void	debug_stacks(t_stacks *stacks)
 {
@@ -57,18 +58,20 @@ int	main(int argc, char *argv[])
 	parse_debug_mode(&argc, argv);
 	stacks = malloc(sizeof(t_stacks));
 	if (!stacks)
-		error(stacks);
+		ft_error(stacks);
+	stacks->a = NULL;
+	stacks->b = NULL;
 	stacks->size_b = 0;
 	stacks->size_a = stack_len(stacks, argv);
 	stacks->a = malloc(stacks->size_a * sizeof(int));
 	stacks->b = malloc(stacks->size_a * sizeof(int));
 	if (!stacks->a || !stacks->b)
-		error(stacks);
+		ft_error(stacks);
 	stack_init(stacks, argv);
 	if (stack_dups(stacks->a, stacks->size_a))
-		error(stacks);
+		ft_error(stacks);
 	indexing(stacks);
 	push_swap(stacks);
-	clean(stacks);
+	ft_clean(stacks);
 	return (0);
 }

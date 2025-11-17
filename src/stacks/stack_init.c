@@ -6,7 +6,7 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 20:45:58 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/11/17 15:58:33 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/11/17 17:40:08 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	ft_atoi_no_of(char *str, t_stacks *stacks)
 	}
 	nb *= sign;
 	if (nb > INT_MAX || nb < INT_MIN)
-		error(stacks);
+		ft_error(stacks);
 	return (nb);
 }
 

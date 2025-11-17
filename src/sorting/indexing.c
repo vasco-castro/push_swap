@@ -6,7 +6,7 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 19:45:53 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/11/17 17:22:55 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/11/17 17:40:08 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	indexing(t_stacks *s)
 
 	new_a = malloc(s->size_a * sizeof * new_a);
 	if (new_a == NULL)
-		error(s);
+		ft_error(s);
 	i = -1;
 	while (++i < s->size_a)
 	{

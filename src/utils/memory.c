@@ -6,13 +6,13 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 16:30:41 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/11/07 16:30:44 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/11/17 17:40:30 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	clean(t_stacks *stacks)
+void	ft_clean(t_stacks *stacks)
 {
 	if (stacks)
 	{
