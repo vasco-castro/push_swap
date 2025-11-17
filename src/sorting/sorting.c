@@ -6,7 +6,7 @@
 /*   By: vsoares- <vsoares-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 16:29:35 by vsoares-          #+#    #+#             */
-/*   Updated: 2025/11/17 15:12:42 by vsoares-         ###   ########.fr       */
+/*   Updated: 2025/11/17 15:50:42 by vsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,22 @@ void	sort5(t_stacks *s)
 			pb(s);
 		else
 			ra(s);
-		debug_stacks(s);
 	}
+	debug_stacks(s);
 	if (s->b[0] == 0)
 		sb(s);
+	debug_stacks(s);
 	if (s->a[2] != 4)
 	{
 		if (s->a[0] == 4)
 			ra(s);
 		else
-			ra(s);
+			rra(s);
 	}
+	debug_stacks(s);
 	if (s->a[0] > s->a[1])
 		sa(s);
+	debug_stacks(s);
 	pa(s);
 	pa(s);
 }
